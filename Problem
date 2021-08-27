@@ -58,3 +58,30 @@ for c in s[1:] + ' ':
     #Se va almacenando en el cur
     cur += c
 print('Longest substring in alphabetical order is:', lng)
+
+#Este ultimo es demasiado raro
+now = ""
+ans = ""
+s='abecedario'
+for n in range(len(s)):
+    #Recorre con n todo el string
+    if n+1 < len(s):
+        if s[n] <= s[n+1]:
+            now = now + s[n:n+1]
+        else:
+            now = now + s[n]
+            if len(ans) < len(now):
+                #Comprueba que es el más largo y reinicia
+                ans = now
+                now = ""
+            else:
+                now = ""
+    elif n+1 == len(s):
+        if s[n] > s[n-1]:
+            now = now + s[n]
+#Nos quedamos con el m
+if len(now) > len(ans):
+    ans = now
+    print("Longest substring in alphabetical order is:",ans)
+else:
+    print("Longest substring in alphabetical order is:",ans)
