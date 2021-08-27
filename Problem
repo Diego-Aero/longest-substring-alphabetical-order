@@ -1,2 +1,16 @@
 longest = ''
 s='abecedario'
+
+for i in range(0, len(s)):
+    #i para desplazarse por todo el string
+    temp = s[i]
+    j = i
+    while j + 1 < len(s) and s[j] <= s[j+1]:
+        #Nos adelantamos en la evaluación de todo el string y lo vamos almacenando en temp
+        temp += s[j+1]
+        j += 1
+    if len(temp) > len(longest):
+        #En la primera iteración se guarda y luego guarda el que sea más largo (aparece el primero de ellos)
+        longest = temp
+
+print("Longest substring in alphabetical order is:", longest)
