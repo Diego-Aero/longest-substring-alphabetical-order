@@ -28,3 +28,17 @@ while len(s) > 1:
     #Se va acortando hasta llegar al final
     s = s[1:]
 print("Longest substring in alphabetical order is: " + longest)
+
+s='abecedario'
+temp=""
+alpha=""
+for i in range(len(s)):
+    #Empieza en 0 y acaba al final del string
+    if s[i-1]<=s[i]:
+        temp=temp+s[i]
+        if len(temp)>len(alpha):
+            alpha=temp           
+    else:
+        #Aquí viene en la primera iteración y siempre que se reinicia
+        temp=s[i]
+print('Longest substring in alphabetical order is: ' + str(alpha))
