@@ -14,3 +14,17 @@ for i in range(0, len(s)):
         longest = temp
 
 print("Longest substring in alphabetical order is:", longest)
+
+longest = current = s[0]
+while len(s) > 1:
+    if s[0] <= s[1]:
+        #En cada tramo alfabeticamente ordenado se va almacenando en el current
+        current += s[1]
+        if len(current) > len(longest):
+            longest = current
+    else:
+        #Se reinicia el current
+        current = s[1]
+    #Se va acortando hasta llegar al final
+    s = s[1:]
+print("Longest substring in alphabetical order is: " + longest)
