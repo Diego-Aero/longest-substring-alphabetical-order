@@ -42,3 +42,19 @@ for i in range(len(s)):
         #Aquí viene en la primera iteración y siempre que se reinicia
         temp=s[i]
 print('Longest substring in alphabetical order is: ' + str(alpha))
+
+s='abecedario'
+cur = lng = s[0]
+for c in s[1:] + ' ':
+    #Va recorriendo la c la palabra desde la posición 1 y asignando su valor a c
+    #Como cuando decíamos que for letter in 'hola' iba adoptando letter cada una de ellas (h, o, l, a)
+    if c < cur[-1]:
+        #Se examina comparando la c con la última letra del cur
+        if len(cur) > len(lng):
+            #Se compara con anteriores
+            lng = cur
+        #Si se cumple que no está en orden, se reinicia
+        cur = ''
+    #Se va almacenando en el cur
+    cur += c
+print('Longest substring in alphabetical order is:', lng)
